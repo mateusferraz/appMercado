@@ -1,0 +1,111 @@
+[
+  {
+    "nome": "Arroz Ciagro Tipo I 5kg",
+    "descricao": "Arroz Ciagro Tipo I",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 20.0
+  },
+  {
+    "nome": "Arroz Ciagro Tipo I 1kg",
+    "descricao": "Arroz Ciagro Tipo I 1kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 5.0
+  },
+  {
+    "nome": "Arroz Ciagro Tipo I 2kg",
+    "descricao": "Arroz Ciagro Tipo I 2kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 8.5
+  },
+  {
+    "nome": "Arroz Ciagro Tipo II 5kg",
+    "descricao": "Arroz Ciagro Tipo II 5kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 18
+  },
+  {
+    "nome": "Arroz Ciagro Tipo II 1kg",
+    "descricao": "Arroz Ciagro Tipo II 1kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 4
+  },
+  {
+    "nome": "Arroz Ciagro Tipo II 2kg",
+    "descricao": "Arroz Ciagro Tipo II 2kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 7.5
+  },
+  {
+    "nome": "Feijão Tarumã 1Kg",
+    "descricao": "Feijão Tarumã 1Kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 12.5
+  },
+  {
+    "nome": "Feijão Assunção 1Kg",
+    "descricao": "Feijão Assunção 1Kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 12.5
+  },
+  {
+    "nome": "Óleo Soya 1L",
+    "descricao": "Óleo Soya 1L",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 9
+  },
+  {
+    "nome": "Óleo Liza 1L",
+    "descricao": "Óleo Liza 1L",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 9.2
+  },
+  {
+    "nome": "Farinha de Milho Cunha 1kg",
+    "descricao": "Farinha de Milho Cunha 1kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 3.5
+  },
+  {
+    "nome": "Sal 1k",
+    "descricao": "Sal 1k",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 2.5
+  },
+  {
+    "nome": "Farinha de Trigo com fermento Dona Benta 1kg",
+    "descricao": "Farinha de Trigo com fermento Dona Benta 1kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 12.5
+  },
+  {
+    "nome": "Farinha de Trigo sem fermento Dona Benta 1kg",
+    "descricao": "Farinha de Trigo sem fermento Dona Benta 1kg",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 12.5
+  },
+  {
+    "nome": "Macarrão Parafuso Galo 500gr",
+    "descricao": "Macarrão Parafuso Galo 500gr",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 12.5
+  },
+  {
+    "nome": "Macarrão espaguete Galo 500gr",
+    "descricao": "Macarrão espaguete Galo 500gr",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 12.5
+  },
+  {
+    "nome": "Macarrão Parafuso Galo 1kg",
+    "descricao": "Macarrão Parafuso Galo 500gr",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 12.5
+  },
+  {
+    "nome": "Macarrão espaguete Galo 1Kg",
+    "descricao": "Macarrão espaguete Galo 500gr",
+    "srcImage": "img/arroz-ciagro.jpg",
+    "valor": 12.5
+  }
+
+]

@@ -1,0 +1,57 @@
+﻿@model List<Produto>;
+@{
+    ViewData["Title"] = "Home Page";    
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <p>@ViewData["Message"]</p>
+
+    @{
+        const int limite_page = 5;
+        int paginas =(int) Math.Ceiling((double)Model.Count() / limite_page);
+        int paginaAtiva = 0;
+    }
+    <table>
+        <thead>
+            <tr>
+                <td>Imagem</td>
+                <td>Produto</td>
+                <td>Descrção</td>
+                <td>Preço</td>
+                <td>Ação</td>
+            </tr>
+        </thead>
+        <tbody>
+            @for(int pagina=0; pagina<paginas; pagina++)
+            {                            
+            
+                var produtosPagina = Model.Skip(pagina * limite_page).Take(limite_page);
+                
+                @foreach (var produto in produtosPagina)
+                {
+                    <tr data-pagina=@(pagina+1) class='@(pagina == paginaAtiva ? "" : "hide")'>
+                        <td><img src="@produto.srcImage"style="width: 20%" /></td>
+                        <td>@produto.nome</td>
+                        <td>@produto.descricao</td>
+                        <td>@produto.valor</td>
+                        <td><a asp-action="AdicionarItem" asp-route-idProduto="@produto.id" >Adicionar</a></td>                        
+                        <td><a asp-action="Editar" asp-route-idProduto="@produto.id" >Atualizar</a></td>
+                    </tr>
+                }
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td><svg class="bi" width="32" height="32" fill="currentColor">
+                        <use xlink:href="bootstrap-icons.svg#heart-fill"/></svg>
+                        <input type="button" id="btnPaginaBack" @(paginaAtiva == 0 ? "disabled" :"") />
+                </td>
+                <td><input type="text" id="indexPaginaAtiva" value="@((int)paginaAtiva+1)" /></td>
+                <td><input type="button" id="btnPaginaNext"><span class="glyphicon glyphicon-triangle-right" aria-hidden="true"></span></input></td>
+            </tr>
+        </tfoot><
+    </table>
+</div>

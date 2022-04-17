@@ -1,0 +1,60 @@
+﻿@model  List<ItemPedido>;
+
+<p>
+    <a asp-action="Index" asp-controller="Produto">Continuar comprando</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+             <th>
+               Imagem
+            </th>
+            <th>
+               Produto
+            </th>
+            <th>
+               Quantidade
+            </th>
+            <th>
+               Valor
+            </th>
+            <th>
+                subtotal
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model) {
+                <tr>
+                    <td>
+                       <img src="@item.produto.srcImage"style="width: 20%" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.produto.nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantidade)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.valorUnitario)
+                    </td>
+                    <td>
+                        item.valorUnitario * item.quantidade)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.idItem">Remover</a>                        
+                    </td>
+                    <td>                        
+                        <a asp-action="Details" asp-route-id="@item.produto.id">Adicionar</a>                       
+                    </td>
+                </tr>
+        }
+    </tbody>
+</table>
+<div class="row">
+    <div class="col-12">
+        <h1>Total R$ @(Model.Sum(i => i.quantidade * i.valorUnitario))</h1>
+    </div>
+</div>
