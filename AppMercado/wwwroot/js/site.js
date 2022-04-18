@@ -9,7 +9,7 @@ var inputPaginaAtiva = document.getElementById("indexPaginaAtiva");
 
 inputPaginaAtiva.addEventListener('change', function () {
     var indexPaginaAtiva = parseInt(document.getElementById("indexPaginaAtiva").value);
-    var itensPagina = document.querySelectorAll("table tbody tr");
+    var itensPagina = document.querySelectorAll("#listaProdutos [data-pagina]");
     for (let i = 0; i < itensPagina.length; i++) {
         if (itensPagina[i].getAttribute("data-pagina") == (indexPaginaAtiva)) {
             itensPagina[i].classList.remove("hide");
@@ -23,7 +23,7 @@ inputPaginaAtiva.addEventListener('change', function () {
 })
 btnPaginaNext.addEventListener('click', function () {
     var indexPaginaAtiva = parseInt(document.getElementById("indexPaginaAtiva").value);
-    var itensPagina = document.querySelectorAll("table tbody tr");
+    var itensPagina = document.querySelectorAll("#listaProdutos [data-pagina]");
     for (let i = 0; i < itensPagina.length; i++) {
         if (itensPagina[i].getAttribute("data-pagina") == (indexPaginaAtiva + 1)) {
             itensPagina[i].classList.remove("hide");
@@ -38,7 +38,7 @@ btnPaginaNext.addEventListener('click', function () {
 });
 
 btnPaginaBack.addEventListener('click', function () {
-    var itensPagina = document.querySelectorAll("table tbody tr");
+    var itensPagina = document.querySelectorAll("#listaProdutos [data-pagina]");
     var indexPaginaAtiva = parseInt(document.getElementById("indexPaginaAtiva").value);
     for (let i = 0; i < itensPagina.length; i++) {
         if (itensPagina[i].getAttribute("data-pagina") == (indexPaginaAtiva - 1)) {

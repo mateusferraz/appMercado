@@ -1,5 +1,45 @@
 ﻿@model List<Produto>;
 @{
-    ViewData["Title"] = "Home Page";
-    
+    ViewData["Title"] = "Home Page";    
 }
+
+
+<div class="text-center">    
+    <p>@ViewData["Message"]</p>
+
+    @{
+        const int limite_page = 5;
+        const int limite_columns = 3;        
+        int paginas =(int) Math.Ceiling((double)Model.Count() / limite_page);
+        int paginaAtiva = 0;
+    }
+   <div class="container" id="listaProdutos">  
+       @for(int pagina=0; pagina<paginas; pagina++)
+        { 
+            var produtosPagina = Model.Skip(pagina * limite_page).Take(limite_page);
+                
+              for(int linha=0; linha<produtosPagina.Count(); linha++)
+               {   
+                    var produtosLinha = Model.Skip(linha * limite_columns).Take(limite_columns);
+                    <div data-pagina=@(pagina+1) class='row @(pagina == paginaAtiva ? "" : "hide")'>            
+                        @foreach (var produto in produtosLinha)
+                        {                        
+                            <div class="col">
+                                <img src="@produto.srcImage"style="width: 20%" />
+                                <p>@produto.nome</p>
+                                <p>@produto.valor</p>
+                                <a asp-action="AdicionarItem" asp-route-idProduto="@produto.id" >Adicionar</a>
+                                <input type="text" id="txtQuantidade" value="1" />
+                                <a asp-action="Editar" asp-route-idProduto="@produto.id" >Atualizar</a>
+                            </div>                 
+                        }
+                    </div>
+                }
+        }
+        <ul>
+            <li><input type="button" id="btnPaginaBack" @(paginaAtiva == 0 ? "disabled" :"") /> </li>
+            <li><input type="text" id="indexPaginaAtiva" value="@((int)paginaAtiva+1)" /></li>
+            <li><input type="button" id="btnPaginaNext" /></li>
+        </ul>
+    </div>
+</div>
