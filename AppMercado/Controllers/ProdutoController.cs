@@ -20,7 +20,8 @@ namespace AppMercado.Controllers
         // GET: ProdutoController
         public ActionResult Index()
         {
-            var data = _produtoRepository.getAll();
+            var data = _produtoRepository.getAllQuery();
+            
             return View(data);
         }
 

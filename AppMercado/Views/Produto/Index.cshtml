@@ -1,14 +1,10 @@
-﻿@model List<Produto>;
+﻿@model IQueryable<Produto>;
 @{
     ViewData["Title"] = "Home Page";    
 }
 
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <p>@ViewData["Message"]</p>
-
     @{
         const int limite_page = 5;
         int paginas =(int) Math.Ceiling((double)Model.Count() / limite_page);
@@ -36,9 +32,8 @@
                         <td><img src="@produto.srcImage"style="width: 20%" /></td>
                         <td>@produto.nome</td>
                         <td>@produto.descricao</td>
-                        <td>@produto.valor</td>
-                        <td><a asp-action="AdicionarItem" asp-route-idProduto="@produto.id" >Adicionar</a></td>                        
-                        <td><a asp-action="Editar" asp-route-idProduto="@produto.id" >Atualizar</a></td>
+                        <td>@produto.valor</td>                        
+                        <td><a asp-action="Editar" asp-route-idProduto="@produto.id" >Editar</a></td>
                     </tr>
                 }
             }

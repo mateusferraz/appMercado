@@ -78,3 +78,7 @@ body {
 table tr {
     border-bottom: 1px solid #ccc;    
 }
+
+ul li{
+    list-style-type:none;
+}

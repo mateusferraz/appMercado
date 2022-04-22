@@ -22,7 +22,17 @@ namespace AppMercado.Controllers
             var itens = (pedido == null || pedido.itens == null ) ? new List<ItemPedido>() : pedido.itens;
             return View(itens);
         }
+        public ActionResult AdicionarItem(int idProduto) {
+            _pedidoRepository.addItem(idProduto);
+            return RedirectToAction(nameof(Index));
+        }
+        public ActionResult removerItem(int idProduto)
+        {
+            _pedidoRepository.removeItem(idProduto);
+            return RedirectToAction(nameof(Index));
+        }
 
+        
         // GET: PedidoController/Details/5
         public ActionResult Details(int id)
         {
@@ -34,62 +44,6 @@ namespace AppMercado.Controllers
         {
             return View();
         }
-
-        // POST: PedidoController/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PedidoController/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
-
-        // POST: PedidoController/Edit/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
-
-        // GET: PedidoController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: PedidoController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        
     }
 }

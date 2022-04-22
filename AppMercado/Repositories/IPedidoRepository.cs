@@ -10,6 +10,6 @@ namespace AppMercado.Repositories
         public int? getPedidoId();
 
         public void addItem(int idProduto);
-
+        public void removeItem(int idProduto);
     }
 }

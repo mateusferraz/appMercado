@@ -1,4 +1,4 @@
-﻿@model List<Produto>;
+﻿@model IQueryable<Produto>;
 @{
     ViewData["Title"] = "Home Page";    
 }
@@ -8,38 +8,43 @@
     <p>@ViewData["Message"]</p>
 
     @{
-        const int limite_page = 5;
+        const int limite_page = 2;
         const int limite_columns = 3;        
         int paginas =(int) Math.Ceiling((double)Model.Count() / limite_page);
         int paginaAtiva = 0;
     }
    <div class="container" id="listaProdutos">  
-       @for(int pagina=0; pagina<paginas; pagina++)
-        { 
-            var produtosPagina = Model.Skip(pagina * limite_page).Take(limite_page);
+        <div class="row">
+           @for(int pagina=0; pagina<paginas; pagina++)
+            { 
+                var produtosPagina = Model.Skip(pagina * limite_page * limite_columns).Take(limite_page * limite_columns);
                 
-              for(int linha=0; linha<produtosPagina.Count(); linha++)
-               {   
-                    var produtosLinha = Model.Skip(linha * limite_columns).Take(limite_columns);
-                    <div data-pagina=@(pagina+1) class='row @(pagina == paginaAtiva ? "" : "hide")'>            
-                        @foreach (var produto in produtosLinha)
-                        {                        
-                            <div class="col">
-                                <img src="@produto.srcImage"style="width: 20%" />
-                                <p>@produto.nome</p>
-                                <p>@produto.valor</p>
-                                <a asp-action="AdicionarItem" asp-route-idProduto="@produto.id" >Adicionar</a>
-                                <input type="text" id="txtQuantidade" value="1" />
-                                <a asp-action="Editar" asp-route-idProduto="@produto.id" >Atualizar</a>
-                            </div>                 
-                        }
-                    </div>
-                }
-        }
-        <ul>
-            <li><input type="button" id="btnPaginaBack" @(paginaAtiva == 0 ? "disabled" :"") /> </li>
-            <li><input type="text" id="indexPaginaAtiva" value="@((int)paginaAtiva+1)" /></li>
-            <li><input type="button" id="btnPaginaNext" /></li>
-        </ul>
+                  for(int linha=0; linha<produtosPagina.Count(); linha++)
+                   {   
+                        var produtosLinha = produtosPagina.Skip(linha * limite_columns).Take(limite_columns);
+                        <div data-pagina=@(pagina+1) class='row @(pagina == paginaAtiva ? "" : "hide")'>            
+                            @foreach (var produto in produtosLinha)
+                            {                        
+                                <div class="col">
+                                    <img src="@produto.srcImage"style="width: 20%" />
+                                    <p>@produto.nome</p>
+                                    <p>@produto.valor</p>
+                                    <a class="btn btn-primary" asp-action="AdicionarItem" asp-route-idProduto="@produto.id" >Adicionar</a>                                
+                                </div>                 
+                            }
+                        </div>
+                    }
+            }
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-1">                
+                <ul class="pagination">
+                    <li class="page-item"><a id="btnPaginaBack" class="page-link" @(paginaAtiva == 0 ? "disabled" :"")><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a> </li>
+                    <li class="page-item"><a id="indexPaginaAtiva" class="page-link" value="@((int)paginaAtiva+1)" >1</a></li>
+                    <li class="page-item"><a id="btnPaginaNext" class="page-link" ><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a></li>
+                </ul>                
+            </div>
+        </div>
+
     </div>
 </div>

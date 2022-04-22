@@ -20,5 +20,11 @@ namespace AppMercado.Repositories
             
             return dbSet.ToList();
         }
+
+        public IQueryable<T> getAllQuery()
+        {
+            IQueryable<T> data = dbSet.AsQueryable();
+            return data;
+        }
     }
 }

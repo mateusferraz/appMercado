@@ -41,13 +41,13 @@
                         @Html.DisplayFor(modelItem => item.valorUnitario)
                     </td>
                     <td>
-                        item.valorUnitario * item.quantidade)
+                        @(item.valorUnitario * item.quantidade)
                     </td>
                     <td>
-                        <a asp-action="Edit" asp-route-id="@item.idItem">Remover</a>                        
+                        <a asp-action="removerItem" asp-route-idProduto="@item.produto.id">Remover</a>                        
                     </td>
                     <td>                        
-                        <a asp-action="Details" asp-route-id="@item.produto.id">Adicionar</a>                       
+                        <a asp-action="AdicionarItem" asp-route-idProduto="@item.produto.id">Adicionar</a>                       
                     </td>
                 </tr>
         }
